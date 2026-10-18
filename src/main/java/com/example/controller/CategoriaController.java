@@ -37,7 +37,7 @@ public class CategoriaController {
 	}
 	
 	@GetMapping("/listarNombre/{nombre}")
-	public ResponseEntity<?> listarCatNombre(@RequestParam String nombre){
+	public ResponseEntity<?> listarCatNombre(@PathVariable("nombre") String nombre){
 		try {
 			List<Categoria> categoria =categoriaService.listarporNombre(nombre);
 			return ResponseEntity.ok(categoria);
