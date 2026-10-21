@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Reserva | DOLCEVITA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+<header>
+    <div class="top-bar"><div class="contenedor">
+        <div><span><i class="fa-solid fa-phone"></i>945 762 189</span><span><i class="fa-brands fa-whatsapp"></i>WhatsApp</span></div>
+        <div><a href="login.html"><i class="fa-solid fa-user"></i> Iniciar sesión</a></div>
+    </div></div>
+    <nav class="navbar"><div class="contenedor">
+        <a href="index.html" class="marca"><b>DOLCEVITA</b><small>Pastelería artesanal</small></a>
+        <button class="nav-toggle" id="navToggle" aria-label="Abrir menú"><i class="fa-solid fa-bars"></i></button>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Inicio</a>
+            <a href="menu.html" class="activo">Menú</a>
+            <a href="mis-pedidos.html">Mis pedidos</a>
+            <a href="carrito.html" class="nav-carrito"><i class="fa-solid fa-bag-shopping"></i><span class="n">2</span></a>
+        </div>
+    </div></nav>
+</header>
+<main>
+<section class="pagina"><div class="contenedor">
+    <div class="pasos"><div class="paso"><b><i class="fa-solid fa-check"></i></b>Productos</div><div class="paso-linea"></div><div class="paso activo"><b>2</b>Datos de entrega</div><div class="paso-linea"></div><div class="paso"><b>3</b>Confirmación</div></div>
+    <div id="avisoCheckout"></div>
+    <div class="dos-col" id="zonaCheckout"><p class="mensaje-estado">Cargando tu pedido...</p></div>
+</div></section>
+</main>
+<footer class="pie-pagina"><div class="contenedor">
+    <div class="cols">
+        <div><div class="marca"><b>DOLCEVITA</b><small>Pastelería artesanal</small></div><p style="margin-top:.8rem">Tortas, postres y bocaditos preparados con dedicación para tus celebraciones.</p></div>
+        <div><h3>Navegación</h3><ul><li><a href="index.html">Inicio</a></li><li><a href="menu.html">Menú</a></li><li><a href="mis-pedidos.html">Mis pedidos</a></li></ul></div>
+        <div><h3>Contacto</h3><ul><li><i class="fa-solid fa-phone"></i> 945 762 189</li><li><i class="fa-solid fa-envelope"></i> ventas@dolcevita.com</li></ul></div>
+    </div>
+    <div class="copy">© 2026 DOLCEVITA</div>
+</div></footer>
+<script src="js/api.js"></script>
+<script src="js/carrito.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/sesion.js"></script>
+<script src="js/checkout.js"></script>
+</body>
+</html>
