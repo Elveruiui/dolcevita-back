@@ -26,3 +26,4 @@ button.pestana { font-family: inherit; cursor: pointer; }
 .resumen-ventas strong { font-family: var(--fuente-titulos); font-size: 1.5rem; }
 .rejilla-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 1.2rem; align-items: start; }
 @media (max-width: 960px) { .rejilla-2 { grid-template-columns: 1fr; } .dos-campos { grid-template-columns: 1fr; } }
+.acciones-cab { display: flex; gap: .7rem; flex-wrap: wrap; }

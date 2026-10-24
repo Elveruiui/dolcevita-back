@@ -1,5 +1,6 @@
 const { contenido } = montarPagina({
   activo: "pedidos", titulo: "Pedidos registrados", subtitulo: "Revisa los pedidos y actualiza su estado.",
+  enlace: { texto: "Descargar reporte", icono: "fa-file-excel", url: "/reporte/pedidos" },
 });
 
 let pedidos = [];

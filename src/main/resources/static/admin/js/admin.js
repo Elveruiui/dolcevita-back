@@ -143,6 +143,11 @@ function montarPagina(opciones) {
     ? '<button class="btn btn-dorado" id="btn-principal"><i class="fa-solid ' + opciones.boton.icono + '"></i> ' + opciones.boton.texto + "</button>"
     : "";
 
+  const enlace = opciones.enlace
+    ? '<a class="btn btn-borde" href="' + opciones.enlace.url + '"><i class="fa-solid ' + opciones.enlace.icono + '"></i> ' + opciones.enlace.texto + "</a>"
+    : "";
+  const acciones = enlace || boton ? '<div class="acciones-cab">' + enlace + boton + "</div>" : "";
+
   document.getElementById("raiz").innerHTML =
     '<div class="admin">' +
     '<aside class="lateral"><a href="../index.html" class="marca"><b>DOLCEVITA</b><small>Panel de administración</small></a>' +
@@ -151,7 +156,7 @@ function montarPagina(opciones) {
     '<div class="admin-main">' +
     '<div class="topbar"><span class="saludo">Hola, <strong>Administrador</strong></span>' +
     '<div class="usuario"><span><span class="avatar">A</span>admin@dolcevita.com</span></div></div>' +
-    '<main class="cuerpo"><div class="cab-pag"><div><h1>' + opciones.titulo + "</h1><p>" + (opciones.subtitulo || "") + "</p></div>" + boton + "</div>" +
+    '<main class="cuerpo"><div class="cab-pag"><div><h1>' + opciones.titulo + "</h1><p>" + (opciones.subtitulo || "") + "</p></div>" + acciones + "</div>" +
     '<div id="contenido"></div></main></div></div>';
 
   return {

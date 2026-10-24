@@ -1,6 +1,7 @@
 const { contenido, botonPrincipal } = montarPagina({
   activo: "entregas", titulo: "Entregas", subtitulo: "Asigna pedidos a los motorizados y sigue su avance.",
   boton: { texto: "Asignar entrega", icono: "fa-plus" },
+  enlace: { texto: "Descargar reporte", icono: "fa-file-excel", url: "/reporte/entregas" },
 });
 
 let entregas = [];
