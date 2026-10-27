@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Iniciar sesión | DOLCEVITA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+<header>
+    <div class="top-bar"><div class="contenedor">
+        <div><span><i class="fa-solid fa-phone"></i>945 762 189</span><span><i class="fa-brands fa-whatsapp"></i>WhatsApp</span></div>
+        <div><a href="login.html"><i class="fa-solid fa-user"></i> Iniciar sesión</a></div>
+    </div></div>
+    <nav class="navbar"><div class="contenedor">
+        <a href="index.html" class="marca"><b>DOLCEVITA</b><small>Pastelería artesanal</small></a>
+        <button class="nav-toggle" id="navToggle" aria-label="Abrir menú"><i class="fa-solid fa-bars"></i></button>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Inicio</a>
+            <a href="menu.html">Menú</a>
+            <a href="mis-pedidos.html">Mis pedidos</a>
+            <a href="carrito.html" class="nav-carrito"><i class="fa-solid fa-bag-shopping"></i><span class="n">0</span></a>
+        </div>
+    </div></nav>
+</header>
+<main>
+<section class="login-caja">
+    <div class="login-lado">
+        <span class="ayuda" style="color:#f5e7e1;letter-spacing:.15em;text-transform:uppercase">Bienvenido</span>
+        <h2>Momentos dulces, a un clic</h2>
+        <p>Inicia sesión o regístrate para reservar tus pedidos, elegir la modalidad de entrega y seguir su estado.</p>
+    </div>
+
+    
+    <form class="login-form" id="formLogin" novalidate>
+        <h2>Acceso</h2>
+        <p class="ayuda">Ingresa tus datos para continuar.</p>
+        <label for="correo">Correo electrónico</label>
+        <input type="email" id="correo" placeholder="tucorreo@ejemplo.com" required>
+        <label for="clave">Contraseña</label>
+        <input type="password" id="clave" placeholder="••••••••" required>
+        <p class="aviso-carrito" id="errorLogin" hidden style="margin-top:1rem;margin-bottom:0"></p>
+        <button class="btn btn-dorado" type="submit" id="btnLogin">Iniciar sesión</button>
+        <p class="ayuda" style="margin-top:1.1rem">¿Eres cliente nuevo? <a href="#" id="irRegistro" style="color:var(--vino);font-weight:600">Crear una cuenta</a></p>
+    </form>
+
+    
+    <form class="login-form" id="formRegistro" hidden novalidate>
+        <h2>Crear cuenta</h2>
+        <p class="ayuda">Regístrate para hacer tus pedidos y consultar tu historial.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 .8rem">
+            <div>
+                <label for="regNombre">Nombre</label>
+                <input type="text" id="regNombre" maxlength="60" placeholder="Tu nombre" required>
+            </div>
+            <div>
+                <label for="regApellido">Apellido</label>
+                <input type="text" id="regApellido" maxlength="60" placeholder="Tu apellido" required>
+            </div>
+        </div>
+        <label for="regCorreo">Correo electrónico</label>
+        <input type="email" id="regCorreo" maxlength="100" placeholder="tucorreo@ejemplo.com" required>
+        <label for="regTelefono">Teléfono (9 dígitos)</label>
+        <input type="tel" id="regTelefono" maxlength="9" placeholder="987654321">
+        <label for="regClave">Contraseña (mínimo 6 caracteres)</label>
+        <input type="password" id="regClave" placeholder="••••••••" required>
+        <p class="aviso-carrito" id="errorRegistro" hidden style="margin-top:1rem;margin-bottom:0"></p>
+        <button class="btn btn-dorado" type="submit" id="btnRegistro">Registrarme</button>
+        <p class="ayuda" style="margin-top:1.1rem">¿Ya tienes una cuenta? <a href="#" id="irLogin" style="color:var(--vino);font-weight:600">Iniciar sesión</a></p>
+    </form>
+</section>
+</main>
+<footer class="pie-pagina"><div class="contenedor">
+    <div class="cols">
+        <div><div class="marca"><b>DOLCEVITA</b><small>Pastelería artesanal</small></div><p style="margin-top:.8rem">Tortas, postres y bocaditos preparados con dedicación para tus celebraciones.</p></div>
+        <div><h3>Navegación</h3><ul><li><a href="index.html">Inicio</a></li><li><a href="menu.html">Menú</a></li><li><a href="mis-pedidos.html">Mis pedidos</a></li></ul></div>
+        <div><h3>Contacto</h3><ul><li><i class="fa-solid fa-phone"></i> 945 762 189</li><li><i class="fa-solid fa-envelope"></i> ventas@dolcevita.com</li></ul></div>
+    </div>
+    <div class="copy">© 2026 DOLCEVITA</div>
+</div></footer>
+<script src="js/api.js"></script>
+<script src="js/carrito.js"></script>
+<script src="js/nav.js"></script>
+<script>
+const formLogin = document.getElementById("formLogin");
+const formRegistro = document.getElementById("formRegistro");
+const errorLogin = document.getElementById("errorLogin");
+const errorRegistro = document.getElementById("errorRegistro");
+const redirectParam = new URLSearchParams(location.search).get("redirect");
+
+function redirigirPorRol(usuario) {
+  Sesion.guardarCache(usuario);
+  const rol = Sesion.rolDe(usuario);
+  if (rol.includes("ADMIN")) {
+    location.href = "admin/index.html";
+  } else if (rol.includes("MOTOR")) {
+    location.href = "admin/entregas.html";
+  } else {
+    location.href = redirectParam || "mis-pedidos.html";
+  }
+}
+
+document.getElementById("irRegistro").addEventListener("click", (e) => {
+  e.preventDefault();
+  errorLogin.hidden = true;
+  formLogin.hidden = true;
+  formRegistro.hidden = false;
+});
+
+document.getElementById("irLogin").addEventListener("click", (e) => {
+  e.preventDefault();
+  errorRegistro.hidden = true;
+  formRegistro.hidden = true;
+  formLogin.hidden = false;
+});
+
+formLogin.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  errorLogin.hidden = true;
+  const correo = document.getElementById("correo").value.trim();
+  const clave = document.getElementById("clave").value;
+  if (!correo || !clave) {
+    errorLogin.textContent = "Ingresa tu correo y contraseña.";
+    errorLogin.hidden = false;
+    return;
+  }
+  const btn = document.getElementById("btnLogin");
+  btn.disabled = true;
+  try {
+    const usuario = await Api.login(correo, clave);
+    redirigirPorRol(usuario);
+  } catch (err) {
+    errorLogin.textContent = err.message;
+    errorLogin.hidden = false;
+    btn.disabled = false;
+  }
+});
+
+formRegistro.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  errorRegistro.hidden = true;
+  const nombre = document.getElementById("regNombre").value.trim();
+  const apellido = document.getElementById("regApellido").value.trim();
+  const correo = document.getElementById("regCorreo").value.trim();
+  const telefono = document.getElementById("regTelefono").value.trim();
+  const contrasena = document.getElementById("regClave").value;
+
+  if (!nombre || !apellido) {
+    errorRegistro.textContent = "Escribe tu nombre y apellido.";
+    errorRegistro.hidden = false;
+    return;
+  }
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(correo)) {
+    errorRegistro.textContent = "Escribe un correo electrónico válido.";
+    errorRegistro.hidden = false;
+    return;
+  }
+  if (telefono && !/^\d{9}$/.test(telefono)) {
+    errorRegistro.textContent = "El teléfono debe tener 9 dígitos.";
+    errorRegistro.hidden = false;
+    return;
+  }
+  if (contrasena.length < 6) {
+    errorRegistro.textContent = "La contraseña debe tener al menos 6 caracteres.";
+    errorRegistro.hidden = false;
+    return;
+  }
+
+  const btn = document.getElementById("btnRegistro");
+  btn.disabled = true;
+  try {
+    const usuario = await Api.registro({ nombre, apellido, correo, telefono, contrasena });
+    redirigirPorRol(usuario);
+  } catch (err) {
+    errorRegistro.textContent = err.message;
+    errorRegistro.hidden = false;
+    btn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>
