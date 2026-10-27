@@ -1,14 +1,20 @@
 async function pedir(ruta) {
   const respuesta = await fetch(ruta);
   if (!respuesta.ok) {
+<<<<<<< HEAD
     const texto = await respuesta.text();
     throw new Error(texto || "Error " + respuesta.status + " al consultar " + ruta);
   }
   if (respuesta.status === 204) return null;
+=======
+    throw new Error("Error " + respuesta.status + " al consultar " + ruta);
+  }
+>>>>>>> 7a8f0bed507ec3a77a98c71f15337719b7fed49e
   return respuesta.json();
 }
 
 async function enviar(ruta, metodo, cuerpo) {
+<<<<<<< HEAD
   const opciones = {
     method: metodo,
     headers: { "Content-Type": "application/json" },
@@ -17,10 +23,18 @@ async function enviar(ruta, metodo, cuerpo) {
     opciones.body = JSON.stringify(cuerpo);
   }
   const respuesta = await fetch(ruta, opciones);
+=======
+  const respuesta = await fetch(ruta, {
+    method: metodo,
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(cuerpo),
+  });
+>>>>>>> 7a8f0bed507ec3a77a98c71f15337719b7fed49e
   const texto = await respuesta.text();
   if (!respuesta.ok) {
     let mensaje = texto || "Error " + respuesta.status;
     try {
+<<<<<<< HEAD
       const interpretado = JSON.parse(texto);
       if (typeof interpretado === "string") mensaje = interpretado;
       else if (interpretado && interpretado.message) mensaje = interpretado.message;
@@ -33,6 +47,14 @@ async function enviar(ruta, metodo, cuerpo) {
   } catch (e) {
     return texto;
   }
+=======
+      const interpretado = JSON.parse(texto); 
+      if (typeof interpretado === "string") mensaje = interpretado;
+    } catch (e) {  }
+    throw new Error(mensaje);
+  }
+  return texto ? JSON.parse(texto) : null;
+>>>>>>> 7a8f0bed507ec3a77a98c71f15337719b7fed49e
 }
 
 const Api = {
@@ -44,6 +66,7 @@ const Api = {
   crearDireccion: (direccion) => enviar("/direccion/crear", "POST", direccion),
   crearPedido: (pedido) => enviar("/pedido/crear", "POST", pedido),
   pedido: (id) => pedir("/pedido/listarId/" + encodeURIComponent(id)),
+<<<<<<< HEAD
   login: (correo, contrasena) => enviar("/auth/login", "POST", { correo, contrasena }),
   registro: (datos) => enviar("/auth/registro", "POST", datos),
   usuarioActual: () => pedir("/auth/me"),
@@ -97,6 +120,8 @@ const Sesion = {
       ? usuario.rol.nombre_rol.toUpperCase()
       : "";
   },
+=======
+>>>>>>> 7a8f0bed507ec3a77a98c71f15337719b7fed49e
 };
 
 function urlImagen(nombreImagen) {
@@ -121,4 +146,8 @@ function esc(texto) {
   const div = document.createElement("div");
   div.textContent = texto == null ? "" : String(texto);
   return div.innerHTML;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 7a8f0bed507ec3a77a98c71f15337719b7fed49e

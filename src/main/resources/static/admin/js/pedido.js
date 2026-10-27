@@ -1,6 +1,9 @@
 const { contenido } = montarPagina({
   activo: "pedidos", titulo: "Detalle del pedido", subtitulo: "Consulta los datos y cambia el estado.",
+<<<<<<< HEAD
   reporte: "pedidos",
+=======
+>>>>>>> 7a8f0bed507ec3a77a98c71f15337719b7fed49e
 });
 
 const idPedido = new URLSearchParams(location.search).get("id");

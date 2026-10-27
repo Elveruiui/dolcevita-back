@@ -3,6 +3,7 @@ const enlacesMenu = document.getElementById("navLinks");
 if (botonMenu && enlacesMenu) {
   botonMenu.addEventListener("click", () => enlacesMenu.classList.toggle("abierto"));
 }
+<<<<<<< HEAD
 
 async function actualizarBarraSesion() {
   const contenedorTop = document.querySelector(".top-bar .contenedor > div:last-child");
@@ -51,3 +52,5 @@ async function actualizarBarraSesion() {
 }
 
 document.addEventListener("DOMContentLoaded", actualizarBarraSesion);
+=======
+>>>>>>> 7a8f0bed507ec3a77a98c71f15337719b7fed49e

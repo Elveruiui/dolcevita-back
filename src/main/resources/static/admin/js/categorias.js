@@ -1,6 +1,9 @@
 const { contenido, botonPrincipal } = montarPagina({
   activo: "categorias", titulo: "Categorías", subtitulo: "Organiza los tipos de producto de la tienda.",
+<<<<<<< HEAD
   reporte: "categorias",
+=======
+>>>>>>> 7a8f0bed507ec3a77a98c71f15337719b7fed49e
   boton: { texto: "Nueva categoría", icono: "fa-plus" },
 });
 

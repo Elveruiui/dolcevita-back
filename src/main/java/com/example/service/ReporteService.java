@@ -1,6 +1,9 @@
 package com.example.service;
 
+<<<<<<< HEAD
 import java.awt.Color;
+=======
+>>>>>>> 7a8f0bed507ec3a77a98c71f15337719b7fed49e
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -23,6 +26,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+<<<<<<< HEAD
 import com.example.model.Categoria;
 import com.example.model.Entrega;
 import com.example.model.Pedido;
@@ -41,6 +45,13 @@ import com.lowagie.text.Phrase;
 import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
+=======
+import com.example.model.Entrega;
+import com.example.model.Pedido;
+import com.example.model.Usuario;
+import com.example.repository.EntregaRepository;
+import com.example.repository.PedidoRepository;
+>>>>>>> 7a8f0bed507ec3a77a98c71f15337719b7fed49e
 
 @Service
 public class ReporteService {
@@ -56,6 +67,7 @@ public class ReporteService {
     @Autowired
     private EntregaRepository entregaRepository;
 
+<<<<<<< HEAD
     @Autowired
     private ProductoRepository productoRepository;
 
@@ -67,6 +79,8 @@ public class ReporteService {
 
     
 
+=======
+>>>>>>> 7a8f0bed507ec3a77a98c71f15337719b7fed49e
     public byte[] generarReportePedidos() throws IOException {
         List<Pedido> pedidos = pedidoRepository.findAll().stream()
                 .sorted(Comparator.comparing(Pedido::getId_pedido, Comparator.nullsLast(Comparator.<Long>reverseOrder())))
@@ -134,6 +148,7 @@ public class ReporteService {
         }
     }
 
+<<<<<<< HEAD
     public byte[] generarReporteProductos() throws IOException {
         List<Producto> productos = productoRepository.findAll();
 
@@ -412,6 +427,8 @@ public class ReporteService {
         return String.format("S/ %.2f", valor == null ? 0.0 : valor.doubleValue());
     }
 
+=======
+>>>>>>> 7a8f0bed507ec3a77a98c71f15337719b7fed49e
     private void escribirResumen(Workbook libro, List<Pedido> pedidos, CellStyle titulo, CellStyle moneda) {
         Sheet hoja = libro.createSheet("Resumen");
         escribirTitulos(hoja, titulo, "Estado", "Cantidad");
@@ -519,4 +536,8 @@ public class ReporteService {
         }
         return ESTADOS_ENTREGA[estado];
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 7a8f0bed507ec3a77a98c71f15337719b7fed49e

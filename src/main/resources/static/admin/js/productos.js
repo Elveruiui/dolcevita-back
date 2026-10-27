@@ -1,6 +1,9 @@
 const { contenido, botonPrincipal } = montarPagina({
   activo: "productos", titulo: "Productos", subtitulo: "Administra el catálogo de productos.",
+<<<<<<< HEAD
   reporte: "productos",
+=======
+>>>>>>> 7a8f0bed507ec3a77a98c71f15337719b7fed49e
   boton: { texto: "Nuevo producto", icono: "fa-plus" },
 });
 

@@ -21,13 +21,21 @@
     </properties>
     
     <dependencies>
+<<<<<<< HEAD
         
+=======
+        <!-- Web y Controladores REST -->
+>>>>>>> 7a8f0bed507ec3a77a98c71f15337719b7fed49e
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+<<<<<<< HEAD
         
+=======
+        <!-- Base de datos y JPA -->
+>>>>>>> 7a8f0bed507ec3a77a98c71f15337719b7fed49e
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -44,13 +52,21 @@
             <version>5.2.3</version>
         </dependency>
 
+<<<<<<< HEAD
         
+=======
+        <!-- Seguridad -->
+>>>>>>> 7a8f0bed507ec3a77a98c71f15337719b7fed49e
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
 
+<<<<<<< HEAD
         
+=======
+        <!-- JJWT para autenticación basada en tokens -->
+>>>>>>> 7a8f0bed507ec3a77a98c71f15337719b7fed49e
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt-api</artifactId>
@@ -69,20 +85,29 @@
             <scope>runtime</scope>
         </dependency>
 
+<<<<<<< HEAD
        
+=======
+        <!-- Lombok -->
+>>>>>>> 7a8f0bed507ec3a77a98c71f15337719b7fed49e
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
 
+<<<<<<< HEAD
         
+=======
+        <!-- DevTools (Recarga automática) -->
+>>>>>>> 7a8f0bed507ec3a77a98c71f15337719b7fed49e
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
+<<<<<<< HEAD
         
         <dependency>
             <groupId>org.apache.poi</groupId>
@@ -98,6 +123,10 @@
         </dependency>
 
         
+=======
+
+        <!-- Pruebas -->
+>>>>>>> 7a8f0bed507ec3a77a98c71f15337719b7fed49e
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>

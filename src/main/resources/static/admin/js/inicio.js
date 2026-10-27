@@ -1,6 +1,9 @@
 const { contenido } = montarPagina({
   activo: "inicio", titulo: "Panel de administración", subtitulo: "Resumen general del sistema.",
+<<<<<<< HEAD
   reporte: "pedidos",
+=======
+>>>>>>> 7a8f0bed507ec3a77a98c71f15337719b7fed49e
 });
 
 contenido.innerHTML = '<p class="mensaje-estado">Cargando resumen...</p>';

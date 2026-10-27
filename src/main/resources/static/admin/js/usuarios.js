@@ -1,6 +1,9 @@
 const { contenido, botonPrincipal } = montarPagina({
   activo: "usuarios", titulo: "Usuarios", subtitulo: "Clientes, administradores y motorizados.",
+<<<<<<< HEAD
   reporte: "usuarios",
+=======
+>>>>>>> 7a8f0bed507ec3a77a98c71f15337719b7fed49e
   boton: { texto: "Nuevo usuario", icono: "fa-plus" },
 });
 

@@ -8,8 +8,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+<<<<<<< HEAD
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+=======
+>>>>>>> 7a8f0bed507ec3a77a98c71f15337719b7fed49e
 @Entity
 @Table(name="usuario")
 public class Usuario {
@@ -25,8 +28,11 @@ public class Usuario {
     private String apellido;
     private String correo;
     private String telefono;
+<<<<<<< HEAD
     
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+=======
+>>>>>>> 7a8f0bed507ec3a77a98c71f15337719b7fed49e
     private String contrasena;
     private int estado;
 

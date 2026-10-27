@@ -1,10 +1,19 @@
 const SECCIONES = [
+<<<<<<< HEAD
   { id: "inicio", url: "index.html", icono: "fa-house", texto: "Inicio", roles: ["ADMIN"] },
   { id: "pedidos", url: "pedidos.html", icono: "fa-clipboard-list", texto: "Pedidos", roles: ["ADMIN"] },
   { id: "productos", url: "productos.html", icono: "fa-cake-candles", texto: "Productos", roles: ["ADMIN"] },
   { id: "categorias", url: "categorias.html", icono: "fa-tags", texto: "Categorías", roles: ["ADMIN"] },
   { id: "entregas", url: "entregas.html", icono: "fa-motorcycle", texto: "Entregas", roles: ["ADMIN", "MOTOR"] },
   { id: "usuarios", url: "usuarios.html", icono: "fa-users", texto: "Usuarios", roles: ["ADMIN"] },
+=======
+  { id: "inicio", url: "index.html", icono: "fa-house", texto: "Inicio" },
+  { id: "pedidos", url: "pedidos.html", icono: "fa-clipboard-list", texto: "Pedidos" },
+  { id: "productos", url: "productos.html", icono: "fa-cake-candles", texto: "Productos" },
+  { id: "categorias", url: "categorias.html", icono: "fa-tags", texto: "Categorías" },
+  { id: "entregas", url: "entregas.html", icono: "fa-motorcycle", texto: "Entregas" },
+  { id: "usuarios", url: "usuarios.html", icono: "fa-users", texto: "Usuarios" },
+>>>>>>> 7a8f0bed507ec3a77a98c71f15337719b7fed49e
 ];
 
 const ESTADOS_PEDIDO = ["PENDIENTE", "CONFIRMADO", "EN_CAMINO", "ENTREGADO", "CANCELADO"];
@@ -19,6 +28,7 @@ async function llamar(ruta, metodo, cuerpo) {
     opciones.body = JSON.stringify(cuerpo);
   }
   const respuesta = await fetch(ruta, opciones);
+<<<<<<< HEAD
   if (respuesta.status === 401) {
     location.href = "../login.html";
     throw new Error("Sesión expirada.");
@@ -26,6 +36,11 @@ async function llamar(ruta, metodo, cuerpo) {
   const texto = await respuesta.text();
   let datos = texto;
   try { datos = JSON.parse(texto); } catch (e) {}
+=======
+  const texto = await respuesta.text();
+  let datos = texto;
+  try { datos = JSON.parse(texto); } catch (e) {  }
+>>>>>>> 7a8f0bed507ec3a77a98c71f15337719b7fed49e
   if (!respuesta.ok) {
     throw new Error(typeof datos === "string" && datos ? datos : "Error " + respuesta.status);
   }
@@ -140,13 +155,18 @@ function imagenProducto(nombre) {
 
 function montarPagina(opciones) {
   const menu = SECCIONES.map((s) =>
+<<<<<<< HEAD
     '<a href="' + s.url + '" data-seccion="' + s.id + '"' + (s.id === opciones.activo ? ' class="activo"' : "") + '>' +
+=======
+    '<a href="' + s.url + '"' + (s.id === opciones.activo ? ' class="activo"' : "") + '>' +
+>>>>>>> 7a8f0bed507ec3a77a98c71f15337719b7fed49e
     '<i class="fa-solid ' + s.icono + '"></i>' + s.texto + "</a>").join("");
 
   const boton = opciones.boton
     ? '<button class="btn btn-dorado" id="btn-principal"><i class="fa-solid ' + opciones.boton.icono + '"></i> ' + opciones.boton.texto + "</button>"
     : "";
 
+<<<<<<< HEAD
   let botonesReporte = "";
   if (opciones.reporte) {
     botonesReporte =
@@ -174,12 +194,31 @@ function montarPagina(opciones) {
 
   verificarSesionAdmin(opciones.activo);
 
+=======
+  const enlace = opciones.enlace
+    ? '<a class="btn btn-borde" href="' + opciones.enlace.url + '"><i class="fa-solid ' + opciones.enlace.icono + '"></i> ' + opciones.enlace.texto + "</a>"
+    : "";
+  const acciones = enlace || boton ? '<div class="acciones-cab">' + enlace + boton + "</div>" : "";
+
+  document.getElementById("raiz").innerHTML =
+    '<div class="admin">' +
+    '<aside class="lateral"><a href="../index.html" class="marca"><b>DOLCEVITA</b><small>Panel de administración</small></a>' +
+    menu +
+    '<a href="../index.html" class="salir"><i class="fa-solid fa-store"></i>Ver tienda</a></aside>' +
+    '<div class="admin-main">' +
+    '<div class="topbar"><span class="saludo">Hola, <strong>Administrador</strong></span>' +
+    '<div class="usuario"><span><span class="avatar">A</span>admin@dolcevita.com</span></div></div>' +
+    '<main class="cuerpo"><div class="cab-pag"><div><h1>' + opciones.titulo + "</h1><p>" + (opciones.subtitulo || "") + "</p></div>" + acciones + "</div>" +
+    '<div id="contenido"></div></main></div></div>';
+
+>>>>>>> 7a8f0bed507ec3a77a98c71f15337719b7fed49e
   return {
     contenido: document.getElementById("contenido"),
     botonPrincipal: document.getElementById("btn-principal"),
   };
 }
 
+<<<<<<< HEAD
 async function verificarSesionAdmin(seccionActiva) {
   try {
     const resp = await fetch("/auth/me");
@@ -229,6 +268,8 @@ async function verificarSesionAdmin(seccionActiva) {
   }
 }
 
+=======
+>>>>>>> 7a8f0bed507ec3a77a98c71f15337719b7fed49e
 function avisar(mensaje, esError) {
   const aviso = document.createElement("div");
   aviso.className = "toast" + (esError ? " error" : "");
@@ -298,4 +339,8 @@ function mostrarCargando(elemento, columnas) {
 
 function mostrarErrorTabla(elemento, columnas, error) {
   elemento.innerHTML = '<tr><td colspan="' + columnas + '" class="mensaje-tabla error">No se pudo cargar la información. ' + esc(error.message) + "</td></tr>";
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 7a8f0bed507ec3a77a98c71f15337719b7fed49e

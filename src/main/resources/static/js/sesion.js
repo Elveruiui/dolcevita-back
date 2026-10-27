@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /*const CORREO_CLIENTE_PRUEBA = "lucia.paredes@correo.com";
+=======
+const CORREO_CLIENTE_PRUEBA = "lucia.paredes@correo.com";
+>>>>>>> 7a8f0bed507ec3a77a98c71f15337719b7fed49e
 
 const Sesion = {
   async clienteActual() {
@@ -9,4 +13,8 @@ const Sesion = {
     }
     return cliente;
   },
+<<<<<<< HEAD
 };*/
+=======
+};
+>>>>>>> 7a8f0bed507ec3a77a98c71f15337719b7fed49e

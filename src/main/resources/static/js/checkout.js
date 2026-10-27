@@ -32,7 +32,11 @@ function dibujarFormulario() {
   return `
     <form class="panel" id="formReserva" novalidate>
       <h3>Datos de entrega</h3>
+<<<<<<< HEAD
       <p class="ayuda">Pedido a nombre de: <strong>${esc(cliente.nombre)} ${esc(cliente.apellido)}</strong> (${esc(cliente.correo)})</p>
+=======
+      <p class="ayuda">Pedido a nombre de: <strong>${esc(cliente.nombre)} ${esc(cliente.apellido)}</strong> (cliente de prueba)</p>
+>>>>>>> 7a8f0bed507ec3a77a98c71f15337719b7fed49e
       <label for="fecha">Fecha de entrega</label>
       <input type="date" id="fecha" min="${hoyISO()}" required>
       <label for="hora">Hora aproximada</label>
